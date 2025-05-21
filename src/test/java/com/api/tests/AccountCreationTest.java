@@ -10,8 +10,10 @@ import com.api.models.response.UserProfileResponse;
 
 import io.restassured.response.Response;
 
+
+//@Listeners(com.api.listeners.TestListener.class)
 public class AccountCreationTest {
-	@Test(description = "Verify if Login API is working...")
+	@Test(description = "Verify if AccountCreation API is working...")
 
 	public void createAccountTest() {
 		
@@ -27,7 +29,7 @@ public class AccountCreationTest {
 
 		UserProfileResponse userProfileResponse = response.as(UserProfileResponse.class);
 		Assert.assertEquals(userProfileResponse.getId(), 4);
-		Assert.assertEquals(userProfileResponse.getToken(), "QpwL5tke4Pnpja7X4");
+		Assert.assertEquals(userProfileResponse.getToken(), " QpwL5tke4Pnpja7X4");
 
 
 	}
