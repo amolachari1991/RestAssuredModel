@@ -1,6 +1,7 @@
 package com.api.base;
 
 import static io.restassured.RestAssured.*;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 import com.api.filters.LoggingFilter;
 import com.api.models.request.LoginRequest;
@@ -8,6 +9,7 @@ import com.api.models.request.LoginRequest;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 
 public class BaseService { // wrapper for Rest Assured!!
@@ -46,6 +48,12 @@ public class BaseService { // wrapper for Rest Assured!!
 
 	protected Response postRequest(String baseUrl, Object payload, String endpoint) {
 		return requestSpecification.baseUri(baseUrl).contentType(ContentType.JSON).body(payload).post(endpoint);
+	}
+	
+	public ValidatableResponse schemaValidaton(Response response,String path) {
+		return response.then().assertThat()
+        .body(matchesJsonSchemaInClasspath(path));
+	
 	}
 
 }

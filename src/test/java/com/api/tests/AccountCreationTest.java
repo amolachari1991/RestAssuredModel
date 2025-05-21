@@ -9,6 +9,10 @@ import com.api.models.request.SignUpRequest;
 import com.api.models.response.UserProfileResponse;
 
 import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
+
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+
 
 
 //@Listeners(com.api.listeners.TestListener.class)
@@ -25,6 +29,9 @@ public class AccountCreationTest {
 		
 		AuthService authService = new AuthService();
 		Response response=authService.signUp(signUpRequest);
+		String path = "jsonSchemas/registration.json";
+
+		 ValidatableResponse t=authService.schemaValidaton(response, path);
 		Assert.assertEquals(response.statusCode(), 200);
 
 		UserProfileResponse userProfileResponse = response.as(UserProfileResponse.class);

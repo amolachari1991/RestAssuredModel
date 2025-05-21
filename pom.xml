@@ -70,6 +70,11 @@
 			<artifactId>extentreports</artifactId>
 			<version>5.1.1</version>
 		</dependency>
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>json-schema-validator</artifactId>
+			<version>5.4.0</version> <!-- or latest -->
+		</dependency>
 
 
 		<!-- Log4j2 -->
