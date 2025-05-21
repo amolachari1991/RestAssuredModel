@@ -29,7 +29,7 @@ public class AccountCreationTest {
 
 		UserProfileResponse userProfileResponse = response.as(UserProfileResponse.class);
 		Assert.assertEquals(userProfileResponse.getId(), 4);
-		Assert.assertEquals(userProfileResponse.getToken(), " QpwL5tke4Pnpja7X4");
+		Assert.assertEquals(userProfileResponse.getToken(), "QpwL5tke4Pnpja7X4");
 
 
 	}
