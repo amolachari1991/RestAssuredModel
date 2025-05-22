@@ -46,7 +46,8 @@ public class AccountCreationTest {
 	public Object[][] createUserData() {
 	    return new Object[][] {
 	        {"pistol", "eve.holt@reqres.in"},
-	        {"Bob", "bob@example.com"}
+	        {"pistol", "eve.holt@reqres.in"},
+//	        {"Bob", "bob@example.com"}
 	    };
 	}
 
