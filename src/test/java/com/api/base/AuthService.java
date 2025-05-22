@@ -24,4 +24,7 @@ public class AuthService extends BaseService {
 		return postRequest(payload, BASE_PATH + "forgot-password");
 
 	}
+	
+	
+	
 }
